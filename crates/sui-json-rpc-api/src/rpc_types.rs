@@ -1198,7 +1198,7 @@ pub enum SuiEvent {
         package_id: ObjectID,
         module: String,
         function: String,
-        sender: SuiAddress,
+        instigator: SuiAddress,
         type_: String,
         fields: SuiMoveStruct,
         #[serde_as(as = "Base64")]
@@ -1208,7 +1208,7 @@ pub enum SuiEvent {
     /// Module published
     #[serde(rename_all = "camelCase")]
     Publish {
-        sender: SuiAddress,
+        instigator: SuiAddress,
         package_id: ObjectID,
     },
     /// Transfer objects to new address / wrap in another object / coin
@@ -1229,7 +1229,7 @@ pub enum SuiEvent {
         package_id: ObjectID,
         module: String,
         function: String,
-        sender: SuiAddress,
+        instigator: SuiAddress,
         object_id: ObjectID,
     },
     /// New object creation
@@ -1237,7 +1237,7 @@ pub enum SuiEvent {
         package_id: ObjectID,
         module: String,
         function: String,
-        sender: SuiAddress,
+        instigator: SuiAddress,
         recipient: Owner,
         object_id: ObjectID,
     },
@@ -1254,7 +1254,7 @@ impl SuiEvent {
                 package_id,
                 module,
                 function,
-                instigator: sender,
+                instigator,
                 type_,
                 contents,
             } => {
@@ -1265,16 +1265,19 @@ impl SuiEvent {
                     package_id,
                     module: module.to_string(),
                     function: function.to_string(),
-                    sender,
+                    instigator,
                     type_: move_obj.type_,
                     fields: move_obj.fields,
                     bcs,
                 }
             }
             Event::Publish {
-                instigator: sender,
+                instigator,
                 package_id,
-            } => SuiEvent::Publish { sender, package_id },
+            } => SuiEvent::Publish {
+                instigator,
+                package_id,
+            },
             Event::TransferObject {
                 package_id,
                 module,
@@ -1300,27 +1303,27 @@ impl SuiEvent {
                 package_id,
                 module,
                 function,
-                instigator: sender,
+                instigator,
                 object_id,
             } => SuiEvent::DeleteObject {
                 package_id,
                 module: module.to_string(),
                 function: function.to_string(),
-                sender,
+                instigator,
                 object_id,
             },
             Event::NewObject {
                 package_id,
                 module,
                 function,
-                instigator: sender,
+                instigator,
                 recipient,
                 object_id,
             } => SuiEvent::NewObject {
                 package_id,
                 module: module.to_string(),
                 function: function.to_string(),
-                sender,
+                instigator,
                 recipient,
                 object_id,
             },

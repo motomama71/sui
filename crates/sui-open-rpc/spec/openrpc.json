@@ -1242,9 +1242,9 @@
                   "bcs",
                   "fields",
                   "function",
+                  "instigator",
                   "module",
                   "packageId",
-                  "sender",
                   "type"
                 ],
                 "properties": {
@@ -1257,14 +1257,14 @@
                   "function": {
                     "type": "string"
                   },
+                  "instigator": {
+                    "$ref": "#/components/schemas/SuiAddress"
+                  },
                   "module": {
                     "type": "string"
                   },
                   "packageId": {
                     "$ref": "#/components/schemas/ObjectID"
-                  },
-                  "sender": {
-                    "$ref": "#/components/schemas/SuiAddress"
                   },
                   "type": {
                     "type": "string"
@@ -1284,15 +1284,15 @@
               "Publish": {
                 "type": "object",
                 "required": [
-                  "packageId",
-                  "sender"
+                  "instigator",
+                  "packageId"
                 ],
                 "properties": {
+                  "instigator": {
+                    "$ref": "#/components/schemas/SuiAddress"
+                  },
                   "packageId": {
                     "$ref": "#/components/schemas/ObjectID"
-                  },
-                  "sender": {
-                    "$ref": "#/components/schemas/SuiAddress"
                   }
                 }
               }
@@ -1363,14 +1363,17 @@
                 "type": "object",
                 "required": [
                   "function",
+                  "instigator",
                   "module",
                   "object_id",
-                  "package_id",
-                  "sender"
+                  "package_id"
                 ],
                 "properties": {
                   "function": {
                     "type": "string"
+                  },
+                  "instigator": {
+                    "$ref": "#/components/schemas/SuiAddress"
                   },
                   "module": {
                     "type": "string"
@@ -1380,9 +1383,6 @@
                   },
                   "package_id": {
                     "$ref": "#/components/schemas/ObjectID"
-                  },
-                  "sender": {
-                    "$ref": "#/components/schemas/SuiAddress"
                   }
                 }
               }
@@ -1400,15 +1400,18 @@
                 "type": "object",
                 "required": [
                   "function",
+                  "instigator",
                   "module",
                   "object_id",
                   "package_id",
-                  "recipient",
-                  "sender"
+                  "recipient"
                 ],
                 "properties": {
                   "function": {
                     "type": "string"
+                  },
+                  "instigator": {
+                    "$ref": "#/components/schemas/SuiAddress"
                   },
                   "module": {
                     "type": "string"
@@ -1421,9 +1424,6 @@
                   },
                   "recipient": {
                     "$ref": "#/components/schemas/Owner"
-                  },
-                  "sender": {
-                    "$ref": "#/components/schemas/SuiAddress"
                   }
                 }
               }
