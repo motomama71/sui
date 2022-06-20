@@ -1,3 +1,6 @@
+// Copyright (c) 2022, Mysten Labs, Inc.
+// SPDX-License-Identifier: Apache-2.0
+
 use std::collections::BTreeMap;
 
 use move_core_types::ident_str;
@@ -22,7 +25,7 @@ fn test_move_event_filter() {
         function: Identifier::from(ident_str!("test_function")),
         instigator: SuiAddress::random_for_testing_only(),
         type_: GasCoin::type_(),
-        contents: GasCoin::new(event_coin_id.clone(), SequenceNumber::new(), 10000).to_bcs_bytes(),
+        contents: GasCoin::new(event_coin_id, SequenceNumber::new(), 10000).to_bcs_bytes(),
     };
     let envelope = EventEnvelope {
         timestamp: 0,

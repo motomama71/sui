@@ -1190,7 +1190,7 @@ pub struct OwnedObjectRef {
 
 #[serde_as]
 #[derive(Eq, PartialEq, Clone, Debug, Serialize, Deserialize, JsonSchema)]
-#[serde(rename = "Event")]
+#[serde(rename = "Event", rename_all = "camelCase")]
 pub enum SuiEvent {
     /// Move-specific event
     #[serde(rename_all = "camelCase")]
@@ -1225,6 +1225,7 @@ pub enum SuiEvent {
         type_: TransferType,
     },
     /// Delete object
+    #[serde(rename_all = "camelCase")]
     DeleteObject {
         package_id: ObjectID,
         module: String,
@@ -1233,6 +1234,7 @@ pub enum SuiEvent {
         object_id: ObjectID,
     },
     /// New object creation
+    #[serde(rename_all = "camelCase")]
     NewObject {
         package_id: ObjectID,
         module: String,

@@ -1233,10 +1233,10 @@
             "description": "Move-specific event",
             "type": "object",
             "required": [
-              "MoveEvent"
+              "moveEvent"
             ],
             "properties": {
-              "MoveEvent": {
+              "moveEvent": {
                 "type": "object",
                 "required": [
                   "bcs",
@@ -1278,10 +1278,10 @@
             "description": "Module published",
             "type": "object",
             "required": [
-              "Publish"
+              "publish"
             ],
             "properties": {
-              "Publish": {
+              "publish": {
                 "type": "object",
                 "required": [
                   "instigator",
@@ -1303,10 +1303,10 @@
             "description": "Transfer objects to new address / wrap in another object / coin",
             "type": "object",
             "required": [
-              "TransferObject"
+              "transferObject"
             ],
             "properties": {
-              "TransferObject": {
+              "transferObject": {
                 "type": "object",
                 "required": [
                   "destinationAddr",
@@ -1356,17 +1356,17 @@
             "description": "Delete object",
             "type": "object",
             "required": [
-              "DeleteObject"
+              "deleteObject"
             ],
             "properties": {
-              "DeleteObject": {
+              "deleteObject": {
                 "type": "object",
                 "required": [
                   "function",
                   "instigator",
                   "module",
-                  "object_id",
-                  "package_id"
+                  "objectId",
+                  "packageId"
                 ],
                 "properties": {
                   "function": {
@@ -1378,10 +1378,10 @@
                   "module": {
                     "type": "string"
                   },
-                  "object_id": {
+                  "objectId": {
                     "$ref": "#/components/schemas/ObjectID"
                   },
-                  "package_id": {
+                  "packageId": {
                     "$ref": "#/components/schemas/ObjectID"
                   }
                 }
@@ -1393,17 +1393,17 @@
             "description": "New object creation",
             "type": "object",
             "required": [
-              "NewObject"
+              "newObject"
             ],
             "properties": {
-              "NewObject": {
+              "newObject": {
                 "type": "object",
                 "required": [
                   "function",
                   "instigator",
                   "module",
-                  "object_id",
-                  "package_id",
+                  "objectId",
+                  "packageId",
                   "recipient"
                 ],
                 "properties": {
@@ -1416,10 +1416,10 @@
                   "module": {
                     "type": "string"
                   },
-                  "object_id": {
+                  "objectId": {
                     "$ref": "#/components/schemas/ObjectID"
                   },
-                  "package_id": {
+                  "packageId": {
                     "$ref": "#/components/schemas/ObjectID"
                   },
                   "recipient": {
@@ -1434,10 +1434,10 @@
             "description": "Epoch change",
             "type": "object",
             "required": [
-              "EpochChange"
+              "epochChange"
             ],
             "properties": {
-              "EpochChange": {
+              "epochChange": {
                 "type": "integer",
                 "format": "uint64",
                 "minimum": 0.0
@@ -1449,10 +1449,10 @@
             "description": "New checkpoint",
             "type": "object",
             "required": [
-              "Checkpoint"
+              "checkpoint"
             ],
             "properties": {
-              "Checkpoint": {
+              "checkpoint": {
                 "type": "integer",
                 "format": "uint64",
                 "minimum": 0.0
